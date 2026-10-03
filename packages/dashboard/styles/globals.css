@@ -161,8 +161,12 @@ table {
   }
 }
 @media (max-width: 720px) {
-  .styx-boat {
+  .styx-boat,
+  .styx-stage {
     display: none;
+  }
+  .nav-links {
+    display: none !important;
   }
 }
 

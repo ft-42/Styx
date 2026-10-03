@@ -44,7 +44,7 @@ export default function Landing() {
           <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 17, letterSpacing: "0.01em" }}>
             STYX
           </span>
-          <div style={{ display: "flex", alignItems: "center", gap: 24, fontSize: 14, flexWrap: "wrap" }}>
+          <div className="nav-links" style={{ display: "flex", alignItems: "center", gap: 24, fontSize: 14, flexWrap: "wrap" }}>
             <a href="#how-it-works" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>
               How it works
             </a>

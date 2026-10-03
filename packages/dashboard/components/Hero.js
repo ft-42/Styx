@@ -152,6 +152,7 @@ function Boat() {
 function StageLabel({ align, eyebrow, title, sub }) {
   return (
     <div
+      className={`styx-stage styx-stage-${align}`}
       style={{
         position: "absolute",
         top: "14%",
@@ -266,7 +267,7 @@ export default function Hero() {
         <h1
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(28px, 4.2vw, 46px)",
+            fontSize: "clamp(22px, 4.2vw, 46px)",
             fontWeight: 700,
             letterSpacing: "0.01em",
             color: "#f3f7fb",
