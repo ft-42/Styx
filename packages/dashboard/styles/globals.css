@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+:root {
+  color-scheme: light;
+  --page-plane: #f9f9f7;
+  --surface-1: #fcfcfb;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #898781;
+  --gridline: #e1e0d9;
+  --baseline: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.1);
+  --series-blue: #2a78d6;
+  --series-blue-track: #e1e0d9;
+  --status-good: #0ca30c;
+  --status-critical: #d03b3b;
+  --success-text: #006300;
+
+  /* Brand identity (Styx) -- shared with docs/styx-brochure, kept
+     distinct from --series-blue above, which is a dataviz token used
+     for chart marks (reputation bars) and follows different rules. */
+  --brand-accent: #0052ff;
+  --brand-accent-soft: #e8efff;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page-plane: #0d0d0d;
+    --surface-1: #1a1a19;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --gridline: #2c2c2a;
+    --baseline: #383835;
+    --border: rgba(255, 255, 255, 0.1);
+    --series-blue: #3987e5;
+    --series-blue-track: #2c2c2a;
+    --status-good: #0ca30c;
+    --status-critical: #e66767;
+    --success-text: #0ca30c;
+    --brand-accent: #4d85ff;
+    --brand-accent-soft: #16233d;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-plane: #0d0d0d;
+  --surface-1: #1a1a19;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted: #898781;
+  --gridline: #2c2c2a;
+  --baseline: #383835;
+  --border: rgba(255, 255, 255, 0.1);
+  --series-blue: #3987e5;
+  --series-blue-track: #2c2c2a;
+  --status-good: #0ca30c;
+  --status-critical: #e66767;
+  --success-text: #0ca30c;
+  --brand-accent: #4d85ff;
+  --brand-accent-soft: #16233d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--page-plane);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+table {
+  font-variant-numeric: tabular-nums;
+}
+
+.styx-boat {
+  position: absolute;
+  bottom: 38%;
+  left: 0;
+  animation: styx-cross 26s linear infinite;
+}
+.styx-boat-bob {
+  animation: styx-bob 3.2s ease-in-out infinite;
+}
+@keyframes styx-cross {
+  0% {
+    left: -6%;
+  }
+  50% {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  100% {
+    left: 106%;
+  }
+}
+@keyframes styx-bob {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+.styx-glow {
+  animation: styx-pulse 7s ease-in-out infinite;
+}
+@keyframes styx-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.styx-fog-a {
+  animation: styx-drift-a 46s ease-in-out infinite;
+}
+.styx-fog-b {
+  animation: styx-drift-b 58s ease-in-out infinite;
+}
+@keyframes styx-drift-a {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4%);
+  }
+}
+@keyframes styx-drift-b {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5%);
+  }
+}
+.styx-shimmer {
+  animation: styx-shimmer 5s ease-in-out infinite;
+}
+@keyframes styx-shimmer {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@media (max-width: 720px) {
+  .styx-boat {
+    display: none;
+  }
+}
+
+.gw-row {
+  display: flex;
+  align-items: stretch;
+}
+
+.gw-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  flex-shrink: 0;
+  color: var(--brand-accent);
+  position: relative;
+}
+
+.gw-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brand-accent), transparent);
+  opacity: 0.6;
+}
+
+.gw-arrow {
+  position: relative;
+  font-size: 12px;
+  background: var(--page-plane);
+  padding: 0 2px;
+}
+
+@media (max-width: 760px) {
+  .gw-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .gw-connector {
+    width: 100%;
+    height: 36px;
+  }
+  .gw-line {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(180deg, transparent, var(--brand-accent), transparent);
+  }
+  .gw-arrow {
+    transform: rotate(90deg);
+  }
+}

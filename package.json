@@ -1,0 +1,25 @@
+{
+  "name": "x402-agent-commerce",
+  "private": true,
+  "version": "0.1.0",
+  "description": "x402 agent commerce middleware - registry, router SDK, resource server, and demo agent",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "npm run start --workspace=packages/demo-agent",
+    "registry": "npm run start --workspace=packages/registry",
+    "provider:a": "PORT=4001 PROVIDER_NAME=\"Price Feed A\" PAY_TO_ADDRESS=$PAY_TO_ADDRESS_A npm run start --workspace=packages/resource-server",
+    "provider:b": "PORT=4002 PROVIDER_NAME=\"Price Feed B\" PAY_TO_ADDRESS=$PAY_TO_ADDRESS_B npm run start --workspace=packages/resource-server",
+    "provider:c": "PORT=4003 PROVIDER_NAME=\"Price Feed C\" PAY_TO_ADDRESS=$PAY_TO_ADDRESS_C npm run start --workspace=packages/resource-server",
+    "seed": "npm run seed --workspace=packages/registry",
+    "agent": "npm run start --workspace=packages/demo-agent",
+    "dashboard": "npm run dev --workspace=packages/dashboard",
+    "contracts:compile": "npm run compile --workspace=packages/contracts",
+    "contracts:test": "npm run test --workspace=packages/contracts",
+    "contracts:deploy": "npm run deploy --workspace=packages/contracts"
+  },
+  "devDependencies": {
+    "railway": "^3.11.0"
+  }
+}

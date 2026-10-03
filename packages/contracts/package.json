@@ -1,0 +1,19 @@
+{
+  "name": "contracts",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "node scripts/deploy.mjs"
+  },
+  "dependencies": {
+    "@coinbase/cdp-sdk": "^1.55.0",
+    "viem": "^2.55.13",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "hardhat": "^2.22.0",
+    "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0"
+  }
+}
