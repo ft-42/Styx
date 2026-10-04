@@ -168,10 +168,33 @@ table {
     width: 84px !important;
     height: auto !important;
   }
-  .nav-links {
-    gap: 10px 16px !important;
-    font-size: 13px !important;
+  .nav-toggle {
+    display: inline-block !important;
   }
+  .nav-links {
+    display: none !important;
+    flex-direction: column;
+    align-items: stretch !important;
+    width: 100%;
+    gap: 14px !important;
+    padding-top: 6px;
+  }
+  .nav-links.open {
+    display: flex !important;
+  }
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .gw-row {

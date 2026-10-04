@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useState } from "react";
 import Hero from "../components/Hero";
 import ForProviders from "../components/ForProviders";
 import ForDevelopers from "../components/ForDevelopers";
@@ -27,6 +28,7 @@ function RiverDivider() {
 
 export default function Landing() {
   const summary = useLiveSummary();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div style={{ fontFamily: "var(--font-body)" }}>
@@ -44,7 +46,20 @@ export default function Landing() {
           <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 17, letterSpacing: "0.01em" }}>
             STYX
           </span>
-          <div className="nav-links" style={{ display: "flex", alignItems: "center", gap: 24, fontSize: 14, flexWrap: "wrap" }}>
+          <button
+            type="button"
+            className="nav-toggle"
+            aria-expanded={menuOpen}
+            aria-label="Toggle menu"
+            onClick={() => setMenuOpen((o) => !o)}
+          >
+            {menuOpen ? "Close" : "Menu"}
+          </button>
+          <div
+            className={`nav-links${menuOpen ? " open" : ""}`}
+            onClick={() => setMenuOpen(false)}
+            style={{ display: "flex", alignItems: "center", gap: 24, fontSize: 14, flexWrap: "wrap" }}
+          >
             <a href="#how-it-works" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>
               How it works
             </a>
