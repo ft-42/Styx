@@ -1,9 +1,13 @@
-# x402 Agent Commerce Middleware
+# Styx402 -- x402 Agent Commerce Router
 
-A discovery + routing + reputation layer on top of Coinbase's x402 payment
-protocol on Base. This is the working skeleton from the build plan --
-Days 1-2 (paid endpoint + environment) plus early scaffolding for the
-registry, router SDK, and demo agent (Days 3-11).
+Styx is a discovery, routing, and reputation layer on top of Coinbase's
+x402 payment protocol on Base. Agents ask for a capability by category;
+Styx ranks every registered provider by live reputation, pays the best
+one over x402, and falls back to the next one if it fails.
+
+- **Live site:** https://www.styx402.com
+- **Live dashboard:** https://www.styx402.com/dashboard
+- **Register your API:** https://www.styx402.com/register
 
 ## What's in here
 
@@ -12,12 +16,16 @@ packages/
   resource-server/   One x402-paid endpoint. Run it 2-3x with different
                       env vars to simulate 2-3 competing providers.
   registry/           Providers register here. Router SDK queries it.
-                      JSON-file backed for now (swap for Postgres later).
+                      JSON-file backed (persisted on a Railway Volume).
   router-sdk/         THE PRODUCT. Discovers providers, ranks by live
                       reputation, pays via x402, falls back on failure.
-  demo-agent/          Autonomous script that proves the whole loop works
-                      unattended. This is what you run for 24-48h before
-                      applying for the grant.
+  demo-agent/         Autonomous script that proves the whole loop works
+                      unattended on Base mainnet.
+  dashboard/          Next.js site: public landing page, provider
+                      self-registration (/register), admin review queue
+                      (/admin), and the live stats dashboard (/dashboard).
+  contracts/          Optional on-chain ProviderRegistry (Base Sepolia and
+                      Base mainnet, 0x4dfb3aca5bd61f9be7cb51a97a17376d9ec7466e).
 ```
 
 Everything is verified to install and run -- the registry has been tested
@@ -139,12 +147,12 @@ repeating every 15 seconds. This loop, run unattended on Base mainnet for
 - [x] Days 12-13 (partial): mainnet integration verified, real payments confirmed
 - [x] Days 12-13: hosted on Railway -- registry, all 3 providers, dashboard,
   and demo agent all run persistently, independent of any local machine.
-  Landing page: https://dashboard-production-ddba.up.railway.app · Live
-  stats: https://dashboard-production-ddba.up.railway.app/dashboard
-- [x] Public-facing landing page (`pages/index.js`) -- explains the
-  product for the two audiences (providers, agent developers), pulls
-  live stats from the registry as proof, links to the stats dashboard
-  (moved to `pages/dashboard.js`).
+  Landing page: https://www.styx402.com · Live stats: https://www.styx402.com/dashboard
+- [x] Public-facing landing page (`pages/index.js`, sections in
+  `components/`) -- cinematic hero, then For Providers, For Developers,
+  the gateway flow, How It Works, live Agent Economy stats, the API
+  marketplace (search and category filter), and a final CTA. Stats
+  dashboard lives at `pages/dashboard.js`.
 - [x] Self-serve provider registration -- `/register` (public form) and
   `/admin` (review queue) in `packages/dashboard`, backed by the
   registry's new pending-review/approve/reject flow. Real third-party
