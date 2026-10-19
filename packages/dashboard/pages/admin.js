@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 
 const REGISTRY_URL = process.env.NEXT_PUBLIC_REGISTRY_URL;
@@ -117,7 +118,12 @@ export default function Admin() {
   }
 
   return (
-    <div style={{ maxWidth: 800, margin: "0 auto", padding: "48px 24px 80px" }}>
+    <>
+      <Head>
+        <title>Admin — Styx402</title>
+        <meta name="robots" content="noindex" />
+      </Head>
+      <main style={{ maxWidth: 800, margin: "0 auto", padding: "48px 24px 80px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
         <div>
           <Link href="/" style={{ color: "var(--text-muted)", fontSize: 13, textDecoration: "none" }}>
@@ -212,6 +218,7 @@ export default function Admin() {
             </div>
           ))}
       </div>
-    </div>
+      </main>
+    </>
   );
 }

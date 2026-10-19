@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 
 const REGISTRY_URL = process.env.NEXT_PUBLIC_REGISTRY_URL;
@@ -128,7 +129,15 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 24px 64px" }}>
+    <>
+      <Head>
+        <title>Live Dashboard — Styx402</title>
+        <meta
+          name="description"
+          content="Live stats for the Styx402 x402 agent commerce router: active providers, routed calls, success rate, and USDC revenue on Base."
+        />
+      </Head>
+      <main style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 24px 64px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 8 }}>
         <div>
           <Link href="/" style={{ color: "var(--text-muted)", fontSize: 13, textDecoration: "none" }}>
@@ -224,6 +233,7 @@ export default function Dashboard() {
           </tbody>
         </table>
       </div>
-    </div>
+      </main>
+    </>
   );
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 import { useState } from "react";
 import Hero from "../components/Hero";
 import ForProviders from "../components/ForProviders";
@@ -32,7 +33,14 @@ export default function Landing() {
 
   return (
     <div style={{ fontFamily: "var(--font-body)" }}>
-      <div style={{ borderBottom: "1px solid var(--border)" }}>
+      <Head>
+        <title>Styx402 — The gateway between APIs and agents</title>
+        <meta
+          name="description"
+          content="Styx402 is a discovery, routing, and reputation layer for Coinbase's x402 payment protocol on Base. Providers list APIs, agents discover and pay for them automatically."
+        />
+      </Head>
+      <header style={{ borderBottom: "1px solid var(--border)" }}>
         <div
           style={{
             display: "flex",
@@ -78,18 +86,20 @@ export default function Landing() {
             <PrimaryButton href="/register">Register your API</PrimaryButton>
           </div>
         </div>
-      </div>
+      </header>
 
-      <Hero />
-      <ForProviders />
-      <ForDevelopers />
-      <GatewayFlow />
-      <HowItWorks />
-      <AgentEconomy summary={summary} />
-      <Marketplace />
-      <FinalCta />
+      <main>
+        <Hero />
+        <ForProviders />
+        <ForDevelopers />
+        <GatewayFlow />
+        <HowItWorks />
+        <AgentEconomy summary={summary} />
+        <Marketplace />
+        <FinalCta />
+      </main>
 
-      <div style={{ borderTop: "1px solid var(--border)", padding: "28px 24px" }}>
+      <footer style={{ borderTop: "1px solid var(--border)", padding: "28px 24px" }}>
         <Section style={{ padding: 0 }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
             <RiverDivider />
@@ -106,7 +116,7 @@ export default function Landing() {
             </span>
           </div>
         </Section>
-      </div>
+      </footer>
     </div>
   );
 }

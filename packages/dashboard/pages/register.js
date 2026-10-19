@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 import { useState } from "react";
 
 const REGISTRY_URL = process.env.NEXT_PUBLIC_REGISTRY_URL;
@@ -150,7 +151,15 @@ export default function Register() {
   }
 
   return (
-    <div style={{ maxWidth: 560, margin: "0 auto", padding: "64px 24px 80px" }}>
+    <>
+      <Head>
+        <title>Register your API — Styx402</title>
+        <meta
+          name="description"
+          content="List your x402-paid API on Styx402. Set a category, price, and wallet, and get routed traffic from agents."
+        />
+      </Head>
+      <main style={{ maxWidth: 560, margin: "0 auto", padding: "64px 24px 80px" }}>
       <Link href="/" style={{ color: "var(--text-muted)", fontSize: 13, textDecoration: "none" }}>
         ← Styx
       </Link>
@@ -246,6 +255,7 @@ export default function Register() {
           {state.status === "submitting" ? "Submitting…" : "Submit"}
         </button>
       </form>
-    </div>
+      </main>
+    </>
   );
 }
