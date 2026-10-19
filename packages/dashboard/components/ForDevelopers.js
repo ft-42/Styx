@@ -1,6 +1,6 @@
 import { Section, Pill, SecondaryButton, SectionTitle } from "./ui";
 
-const snippet = `import { request } from "router-sdk";
+const snippet = `import { request } from "@styx402/router-sdk";
 
 const result = await request({
   category: "price-feed",

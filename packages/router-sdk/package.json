@@ -1,8 +1,18 @@
 {
-  "name": "router-sdk",
+  "name": "@styx402/router-sdk",
   "version": "0.1.0",
+  "description": "Discovery, ranking, and payment SDK for x402 agent commerce -- picks the best registered provider by live reputation, pays via x402 on Base, and falls back on failure.",
   "type": "module",
   "main": "router.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ft-42/Styx.git",
+    "directory": "packages/router-sdk"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@coinbase/cdp-sdk": "^1.55.0",
     "@x402/core": "^2.21.0",
