@@ -39,7 +39,7 @@ export function PrimaryButton({ href, children }) {
         display: "inline-flex",
         alignItems: "center",
         gap: 6,
-        background: "var(--brand-accent)",
+        background: "var(--cta-bg)",
         color: "#fff",
         padding: "11px 22px",
         borderRadius: 8,

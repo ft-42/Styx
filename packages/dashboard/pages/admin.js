@@ -99,7 +99,7 @@ export default function Admin() {
           <button
             type="submit"
             style={{
-              background: "var(--series-blue)",
+              background: "var(--cta-bg)",
               color: "#fff",
               border: "none",
               padding: "10px 20px",
@@ -183,7 +183,7 @@ export default function Admin() {
                     disabled={busyId === p.id}
                     onClick={() => act(p.id, "approve")}
                     style={{
-                      background: "var(--status-good)",
+                      background: "var(--status-good-button)",
                       color: "#fff",
                       border: "none",
                       padding: "8px 14px",

@@ -241,7 +241,7 @@ export default function Register() {
           type="submit"
           disabled={state.status === "submitting"}
           style={{
-            background: "var(--series-blue)",
+            background: "var(--cta-bg)",
             color: "#fff",
             border: "none",
             padding: "12px 22px",

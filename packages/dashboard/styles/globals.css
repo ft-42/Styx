@@ -21,6 +21,13 @@
      for chart marks (reputation bars) and follows different rules. */
   --brand-accent: #0052ff;
   --brand-accent-soft: #e8efff;
+  /* Solid button fills with white text. Contrast against white only
+     depends on this value, not the page background, so these stay
+     constant across light/dark -- unlike --brand-accent and
+     --status-good, which are tuned per-theme as text/icon colors and
+     are sometimes too light for white text to meet 4.5:1 as a fill. */
+  --cta-bg: #0052ff;
+  --status-good-button: #0c7a0c;
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
